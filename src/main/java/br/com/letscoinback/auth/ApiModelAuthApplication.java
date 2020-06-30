@@ -1,4 +1,4 @@
-package br.com.model.auth;
+package br.com.letscoinback.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

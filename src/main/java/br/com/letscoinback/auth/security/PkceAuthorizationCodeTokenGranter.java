@@ -1,4 +1,4 @@
-package br.com.model.auth.security;
+package br.com.letscoinback.auth.security;
 
 
 import java.security.MessageDigest;

@@ -1,10 +1,10 @@
-package br.com.model.auth.security;
+package br.com.letscoinback.auth.security;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
-import br.com.model.auth.entity.UserEntity;
+import br.com.letscoinback.auth.entity.UserEntity;
 import lombok.Getter;
 
 @Getter

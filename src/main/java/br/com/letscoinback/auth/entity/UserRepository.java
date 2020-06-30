@@ -1,4 +1,4 @@
-package br.com.model.auth.entity;
+package br.com.letscoinback.auth.entity;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package br.com.model.auth.entity;
+package br.com.letscoinback.auth.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.model.auth.security.AuthUser;
+import br.com.letscoinback.auth.security.AuthUser;
 
 @Service
 public class JpaUserDetailsService implements UserDetailsService {
