@@ -51,7 +51,7 @@ jobs:
       DOCKER_USER: ${{ secrets.DOCKER_USER }} 
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
       PROJECT_NAME: letscoinback-auth
-      TAG: $(date +%s)
+      TAG: (date +%s)
     steps:
       - uses: actions/checkout@v1
       - name: Download Maven build artifact
