@@ -51,6 +51,7 @@ jobs:
       DOCKER_USER: ${{ secrets.DOCKER_USER }} 
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
       PROJECT_NAME: letscoinback-auth
+      TAG: $(date +%s)
     steps:
       - uses: actions/checkout@v1
       - name: Download Maven build artifact
@@ -67,6 +68,6 @@ jobs:
         run: |
           mkdir -p letscoinback-auth/target
           mv artifact/letscoinback-auth.jar letscoinback-auth/target
-          docker build -f Dockerfile -t $REPO:$(date +%s) letscoinback-auth
+          docker build -f Dockerfile -t $REPO:$TAG letscoinback-auth
       - name: Publish Docker image
-        run: docker push $REPO
+        run: docker push $REPO:$TAG
