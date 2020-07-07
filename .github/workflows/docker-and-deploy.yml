@@ -70,6 +70,6 @@ jobs:
           mkdir -p $PROJECT_NAME/target
           mv artifact/$PROJECT_NAME.jar $PROJECT_NAME/target
           echo "::set-output name=tag::$(date +%s)"
-          docker build -f Dockerfile -t $REPO:${{ steps.build-image.outputs.image }} $PROJECT_NAME
+          docker build -f Dockerfile -t $REPO:${{ steps.build-image.outputs.tag }} $PROJECT_NAME
       - name: Publish Docker image
-        run: docker push $REPO:${{ steps.build-image.outputs.image }}
+        run: docker push $REPO:${{ steps.build-image.outputs.tag }}
