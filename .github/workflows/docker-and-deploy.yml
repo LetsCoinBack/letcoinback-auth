@@ -67,6 +67,6 @@ jobs:
         run: |
           mkdir -p letscoinback-auth/target
           mv artifact/letscoinback-auth.jar letscoinback-auth/target
-          docker build -f Dockerfile -t $REPO:$(date +%s) letscoinback-auth
+          docker build -f Dockerfile -t highlanderdantas/letscoinback-auth:$(date +%s) letscoinback-auth
       - name: Publish Docker image
-        run: docker push $REPO:$(date +%s)
+        run: docker push highlanderdantas/letscoinback-auth:$(date +%s)
