@@ -50,7 +50,6 @@ jobs:
       REPO: ${{ secrets.DOCKER_REPO }}
       DOCKER_USER: ${{ secrets.DOCKER_USER }} 
       DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-      PROJECT_NAME: letscoinback-auth
       TAG: v1
     steps:
       - uses: actions/checkout@v1
@@ -66,9 +65,9 @@ jobs:
         run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - name: Build Docker image
         run: |
-          mkdir -p $PROJECT_NAME/target
-          mv artifact/$PROJECT_NAME.jar $PROJECT_NAME/target
-          docker build -f Dockerfile -t $REPO:$TAG $PROJECT_NAME
+          mkdir -p letscoinback-auth/target
+          mv artifact/letscoinback-auth.jar letscoinback-auth/target
+          docker build -f Dockerfile -t $REPO:$TAG letscoinback-auth
       - name: Publish Docker image
         run: docker push $REPO:$TAG
       - name: Configure AWS credentials from Test account
@@ -76,7 +75,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: sa-east-1
+          aws-region: ${{ secrets.AWS_REGION }}
       - name: Update image Task Definition
         run: |
           OLD_TASK_ID=$(aws ecs list-tasks --cluster letscoinback --service-name letscoinback-auth | egrep "task/" | sed -E "s/.*task\/(.*)\"/\1/")
