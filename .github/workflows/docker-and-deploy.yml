@@ -71,7 +71,7 @@ jobs:
           docker build -f Dockerfile -t $REPO:$TAG $PROJECT_NAME
       - name: Publish Docker image
         run: docker push $REPO:$TAG
-        name: Configure AWS credentials from Test account
+      - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
